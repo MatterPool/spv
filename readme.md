@@ -41,8 +41,11 @@ A serialised SPV proof (RAWSPV) adopts the following byte structure¹:
 A worked example of RAWSPV for any mined transaction may be acquired from the Mattercloud TXDB API:
 
 **RAWSPV**
+
 https://txdb.mattercloud.io/api/v1/spv/6711e4b49e43bc33fd2be323bba86f96f97529bdffc9119966766e72c1001ccd
+
 **JSON formatted RAWSPV**
+
 https://txdb.mattercloud.io/api/v1/spv/6711e4b49e43bc33fd2be323bba86f96f97529bdffc9119966766e72c1001ccd?isjson=true
 
 ¹ _While we could also append a block header to the end of this structure, and the VarInt structure of the RAWSPV format does enable this, SPV as defined in the Bitcoin whitepaper requires users to maintain their own copy of the block headers for validation purposes. In absense of this, handing someone an SPV proof with a header appended to the end, while perhaps convenient, is actually no better than handing them a RAWTX, as validating a single header without validating the entire chain of proof of work from the genesis block does not actually mathematically prove that a transaction has been recorded in the longest chain of proof of work._
@@ -59,9 +62,13 @@ The structure of a transaction is outlined in detail by the BitcoinSV wiki here:
 An SPVTX simply appends the above RAWSPV structure to the end of the transaction buffer directly after nLockTime.
 
 A worked example of RAWSPV for any mined transaction may be acquired from the Mattercloud TXDB API:
+
 **SPVTX**
+
 https://txdb.mattercloud.io/api/v1/spvtx/6711e4b49e43bc33fd2be323bba86f96f97529bdffc9119966766e72c1001ccd
+
 **JSON formatted SPVTX**
+
 https://txdb.mattercloud.io/api/v1/spvtx/6711e4b49e43bc33fd2be323bba86f96f97529bdffc9119966766e72c1001ccd?isjson=true
 
 # Acknowledgements
