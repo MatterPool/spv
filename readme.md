@@ -73,6 +73,7 @@ https://txdb.mattercloud.io/api/v1/spvtx/6711e4b49e43bc33fd2be323bba86f96f97529b
 
 # Acknowledgements
 [@deanmlittle](https://twitter.com/deanmlittle)/[u40](https://twetch.app/u/40) - Creator of RAWSPV and SPVTX formats, SPV.js bsv2 extension, SPV Client, SPV Node and Mattercloud SPV API software.
+
 [@attilaaros](https://twitter.com/AttilaAros)/[u205](https://twetch.app/u/205) - Creator of TXDB, the enabling technology that allowed us to prove that SPV truly does work at scale.
 
 # License
