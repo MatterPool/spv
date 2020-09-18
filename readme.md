@@ -1,5 +1,5 @@
 # SPV.js
-SPV.js is a [bsv2](https://github.com/moneybutton/bsv/) extension that enables you to work with the SPV and SPVTX data structures for providing and validating SPV proofs and services. Rather than enforcing a strict deserialised format such as a Javascript object or JSON schema, the user is free to deserialise this structure however they see fit, making it easy to develop additional libraries for other languages and ensure cross-compatability.
+SPV.js is a [bsv2](https://github.com/moneybutton/bsv/) extension that enables you to work with the RAWSPV and SPVTX data structures for providing and validating SPV proofs and services. Rather than enforcing a strict deserialised format such as a Javascript object or JSON schema, the user is free to deserialise this structure however they see fit, making it easy to develop additional libraries for other languages and ensure cross-compatability.
 
 ### Installation
 SPV.js requires the peer dependency of [bsv2](https://github.com/moneybutton/bsv/). You must install this dependency yourself in order to make use of SPV.js:
@@ -55,7 +55,7 @@ https://txdb.mattercloud.io/api/v1/spv/6711e4b49e43bc33fd2be323bba86f96f97529bdf
 ³ _Assuming a user is starting from a RAWTX to validate a proof, it would be possible to omit the LE hash of a transaction, enabling us to save 32 bytes in the RAWSPV. This approach becomes problematic when an SPV proof is acquired separately from a RAWTX, as there would then be no simple way to pair the two together other than maintaining the entire set of merkle leafs for the opposing block and extracting the hash via its index; defeating the entire purpose of using SPV. 32 bytes is a small price to pay for the ability to easily verify a proof against both a block header and a txid without immediately having either of them on hand._
 
 # SPVTX serialisation format
-An SPVTX is simply a RAWTX concatenated with a RAWSPV. As such, it is backwards compatible with any library currently using RAWTX that acquires nLockTime by reading in a `Uint32_t` from the transaction buffer, such as [bsv2](https://github.com/moneybutton/bsv/). This may not be the case for libraries that instead acquire nLockTime by simply reading to the end of the RAWTX buffer.
+An SPVTX is an extension of the RAWTX format, a widely adopted standard for serialising Bitcoin transaction. An SPVTX takes a RAWTX and concatenates it with a RAWSPV. As such, it is backwards compatible with any library currently using RAWTX that acquires nLockTime by reading in a `Uint32_t` from the transaction buffer, such as [bsv2](https://github.com/moneybutton/bsv/). This may not be the case for libraries that instead acquire nLockTime by simply reading from the end of the last transaction output to the end of the buffer, but can be made compatible rather trivially by truncating the RAWSPV off the end.
 
 The structure of a transaction is outlined in detail by the BitcoinSV wiki here: https://wiki.bitcoinsv.io/index.php/Bitcoin_Transactions
 
