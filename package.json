@@ -4,14 +4,22 @@
   "description": "A simple client side SPV solution for Bitcoin SV",
   "main": "index.js",
   "scripts": {
-    "test": "mocha \"test/spv.test.js\" --require esm"
+    "test": "mocha \"test/spv.test.js\" --require esm",
+    "build": "webpack index.js --config webpack.config.js"
   },
   "author": "Matterpool Inc.",
   "license": "ISC",
   "peerDependencies": {
     "bsv": "^2.0.0-beta.42"
   },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "devDependencies": {
+    "terser-webpack-plugin": "^3.0.1",
+    "webpack": "4.29.3",
+    "webpack-cli": "3.2.3",
     "bsv": "^2.0.0-beta.42",
     "chai": "^4.2",
     "esm": "^3.2",
