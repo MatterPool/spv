@@ -1,7 +1,7 @@
 {
   "name": "spv",
   "version": "1.0.0",
-  "description": "A simple client side SPV solution for Bitcoin SV",
+  "description": "A BSV2 SPV extension for Bitcoin SV",
   "repository": "https://github.com/matterpool/spv",
   "main": "lib/spv.cjs.js",
   "module": "src/index.js",
