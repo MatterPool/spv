@@ -53,7 +53,7 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/spv.cjs.js',
+      file: 'lib/spv.cjs.js',
       format: 'cjs'
     },
     external: ['bsv', 'buffer'],
