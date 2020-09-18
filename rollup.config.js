@@ -16,7 +16,7 @@ export default [
       {
         file: 'lib/spv.js',
         format: 'iife',
-        name: 'SPV',
+        name: 'spv',
         globals: {
           bsv: 'bsvjs'
         }
@@ -25,7 +25,7 @@ export default [
       {
         file: 'lib/spv.min.js',
         format: 'iife',
-        name: 'SPV',
+        name: 'spv',
         globals: {
           bsv: 'bsvjs'
         },

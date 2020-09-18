@@ -1,5 +1,5 @@
-import { SPV } from './spv.js'
-import { SPVTx } from './spv-tx.js'
+import { SPV } from './spv'
+import { SPVTx } from './spv-tx'
 
 export {
     SPV,

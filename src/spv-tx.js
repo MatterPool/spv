@@ -11,7 +11,7 @@
 'use strict'
 
 import { Tx, Struct, Bw, Hash } from 'bsv'
-import { SPV } from './spv.js'
+import { SPV } from './spv'
 
 class SPVTx extends Struct {
   constructor (
