@@ -1,5 +1,5 @@
 import { assert } from 'chai'
-import { SPVTx } from "../index.js"
+import { SPVTx } from "../lib/index.js"
 import { BlockHeader } from "bsv"
 
 describe('valid spvtx', () => {

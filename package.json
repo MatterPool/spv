@@ -2,8 +2,12 @@
   "name": "spv",
   "version": "1.0.0",
   "description": "A simple client side SPV solution for Bitcoin SV",
-  "main": "index.js",
+  "repository": "https://github.com/matterpool/spv",
+  "main": "lib/spv.cjs.js",
+  "module": "src/index.js",
+  "unpkg": "lib/spv.min.js",
   "scripts": {
+    "build": "rm -rf dist/* && rollup -c rollup.config.js",
     "test": "mocha \"test/spv.test.js\" --require esm"
   },
   "author": "Matterpool Inc.",
@@ -12,10 +16,20 @@
     "bsv": "^2.0.0-beta.42"
   },
   "devDependencies": {
+    "@babel/core": "^7.10",
+    "@babel/preset-env": "^7.10",
+    "@rollup/plugin-babel": "^5.0",
+    "@rollup/plugin-commonjs": "^13.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^8.0",
     "bsv": "^2.0.0-beta.42",
     "chai": "^4.2",
     "esm": "^3.2",
-    "mocha": "^8.0"
+    "mocha": "^8.0",
+    "rollup": "^2.16",
+    "rollup-plugin-banner": "^0.2",
+    "rollup-plugin-node-polyfills": "^0.2",
+    "rollup-plugin-terser": "^6.1"
   },
   "keywords": [
     "BSV",
