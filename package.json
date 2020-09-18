@@ -7,7 +7,7 @@
   "module": "src/index.js",
   "unpkg": "lib/spv.min.js",
   "scripts": {
-    "build": "rm -rf dist/* && rollup -c rollup.config.js",
+    "build": "rm -rf lib/* && rollup -c rollup.config.js",
     "test": "mocha \"test/spv.test.js\" --require esm"
   },
   "author": "Matterpool Inc.",
