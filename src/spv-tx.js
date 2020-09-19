@@ -62,6 +62,7 @@ class SPVTx extends Struct {
 
   validate(header) {
     if (!this.spv || !this.spv) throw new Error("SPV proof not found")
+    if (!this.tx.hash().equals(this.spv.hashes[0])) throw new Error("TXID mismatch")
     if (!this.spv.merkleRoot.equals(header.merkleRootBuf)) throw new Error("Merkle root mismatch")
     if (!Hash.sha256Sha256(header.toBuffer()).reverse().equals(this.spv.blockHash)) throw new Error("Block hash mismatch")
     return true
