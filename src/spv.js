@@ -92,6 +92,10 @@ class SPV extends Struct {
     }
     return hash
   }
+
+  validate(header) {
+    return this.merkleRoot.equals(header.merkleRootBuf)
+  }
 }
 
 export { SPV }
