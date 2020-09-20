@@ -57,7 +57,7 @@ class SPV extends Struct {
   fromBr (br) {
     this.blockHash = br.read(32)
     this.txIndex = br.readVarIntBn()
-    let pairs = [];
+    let pairs = []
     for(let count = br.readVarIntBn(); count.gt(0); count = count.sub(1)){
       pairs.push(br.read(32))
     }
@@ -80,10 +80,10 @@ class SPV extends Struct {
 
   merklize () {
     if(this.txIndex.eq(0) && this.hashes.length === 1){
-        return (this.hashes[0]);
+        return (this.hashes[0])
     }
     let index = this.txIndex
-    let hashes = this.hashes.slice();
+    let hashes = this.hashes.slice()
     let hash = hashes.shift()
     while(hashes.length){
         const pair = index.mod(2).eq(0) ? [hash, hashes.shift()] : [hashes.shift(), hash]
