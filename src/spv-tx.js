@@ -39,10 +39,10 @@ class SPVTx extends Struct {
 
   fromBr (br) {
     this.tx = Tx.fromBr(br)
-    try {
-        this.spv = SPV.fromBr(br)
-    } catch(e) {
-        this.spv = null
+    if(!br.eof() && br.buf.slice(br.pos,br.pos+1).equals(Buffer.alloc(1))){
+      this.spv = SPV.fromBr(br)
+    } else {
+      this.spv = null
     }
     return this
   }

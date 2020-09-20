@@ -59,7 +59,7 @@ class SPV extends Struct {
     this.txIndex = br.readVarIntBn()
     let pairs = [];
     for(let count = br.readVarIntBn(); count.gt(0); count = count.sub(1)){
-      pairs.push(br.read(32));
+      pairs.push(br.read(32))
     }
     this.hashes = pairs
     this.txId = Buffer.from(pairs[0]).reverse()
